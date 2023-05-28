@@ -1,4 +1,4 @@
-package com.example.springstudy.aop;
+package com.example.springstudy.aop.notspringcode;
 
 import com.example.springstudy.aop.entity.Exam;
 import com.example.springstudy.aop.entity.ExamImpl;

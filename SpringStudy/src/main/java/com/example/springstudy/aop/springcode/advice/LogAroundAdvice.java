@@ -1,4 +1,4 @@
-package com.example.springstudy.aop.advice;
+package com.example.springstudy.aop.springcode.advice;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;

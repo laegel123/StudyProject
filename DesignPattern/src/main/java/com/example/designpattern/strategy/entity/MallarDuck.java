@@ -1,7 +1,7 @@
-package com.example.designpattern.duck.entity;
+package com.example.designpattern.strategy.entity;
 
-import com.example.designpattern.duck.entity.fly.FlyWithWings;
-import com.example.designpattern.duck.entity.quack.Quack;
+import com.example.designpattern.strategy.entity.fly.FlyWithWings;
+import com.example.designpattern.strategy.entity.quack.Quack;
 
 public class MallarDuck extends Duck{
     @Override

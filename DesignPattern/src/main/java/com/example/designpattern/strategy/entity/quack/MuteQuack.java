@@ -1,4 +1,4 @@
-package com.example.designpattern.duck.entity.quack;
+package com.example.designpattern.strategy.entity.quack;
 
 public class MuteQuack implements QuackBehavior {
 

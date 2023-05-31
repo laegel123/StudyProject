@@ -1,4 +1,4 @@
-package com.example.designpattern.duck.entity.quack;
+package com.example.designpattern.strategy.entity.quack;
 
 public interface QuackBehavior {
     public void quack();

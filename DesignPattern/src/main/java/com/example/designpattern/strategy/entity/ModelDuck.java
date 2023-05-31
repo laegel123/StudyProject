@@ -1,7 +1,7 @@
-package com.example.designpattern.duck.entity;
+package com.example.designpattern.strategy.entity;
 
-import com.example.designpattern.duck.entity.fly.FlyNoWay;
-import com.example.designpattern.duck.entity.quack.Quack;
+import com.example.designpattern.strategy.entity.fly.FlyNoWay;
+import com.example.designpattern.strategy.entity.quack.Quack;
 
 public class ModelDuck extends Duck {
 

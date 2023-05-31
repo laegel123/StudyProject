@@ -1,9 +1,9 @@
-package com.example.designpattern.duck.controller;
+package com.example.designpattern.strategy.controller;
 
-import com.example.designpattern.duck.entity.Duck;
-import com.example.designpattern.duck.entity.MallarDuck;
-import com.example.designpattern.duck.entity.ModelDuck;
-import com.example.designpattern.duck.entity.fly.FlyRocketPowered;
+import com.example.designpattern.strategy.entity.Duck;
+import com.example.designpattern.strategy.entity.MallarDuck;
+import com.example.designpattern.strategy.entity.ModelDuck;
+import com.example.designpattern.strategy.entity.fly.FlyRocketPowered;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

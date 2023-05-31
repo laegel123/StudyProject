@@ -1,4 +1,4 @@
-package com.example.designpattern.duck.entity.fly;
+package com.example.designpattern.strategy.entity.fly;
 
 public class FlyWithWings implements FlyBehavior{
     @Override

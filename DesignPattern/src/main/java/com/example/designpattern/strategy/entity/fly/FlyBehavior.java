@@ -1,4 +1,4 @@
-package com.example.designpattern.duck.entity.fly;
+package com.example.designpattern.strategy.entity.fly;
 
 public interface FlyBehavior {
     public void fly();

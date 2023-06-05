@@ -1,4 +1,4 @@
-package com.example.designpattern.observer.entity;
+package com.example.designpattern.observer.example1.entity;
 
 public interface DisplayElement {
 

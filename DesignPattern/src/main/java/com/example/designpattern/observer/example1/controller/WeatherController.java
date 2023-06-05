@@ -1,7 +1,7 @@
-package com.example.designpattern.observer.controller;
+package com.example.designpattern.observer.example1.controller;
 
-import com.example.designpattern.observer.entity.CurrentConditionDisplay;
-import com.example.designpattern.observer.entity.WeatherData;
+import com.example.designpattern.observer.example1.entity.CurrentConditionDisplay;
+import com.example.designpattern.observer.example1.entity.WeatherData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

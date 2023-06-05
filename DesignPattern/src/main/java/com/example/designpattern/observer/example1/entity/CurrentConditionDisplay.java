@@ -1,4 +1,4 @@
-package com.example.designpattern.observer.entity;
+package com.example.designpattern.observer.example1.entity;
 
 public class CurrentConditionDisplay implements Observer, DisplayElement{
 
@@ -17,9 +17,9 @@ public class CurrentConditionDisplay implements Observer, DisplayElement{
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        this.temperature = temp;
-        this.humidity = humidity;
+    public void update() {
+        this.temperature = weatherData.getTemperature();
+        this.humidity = weatherData.getHumidity();
         display();
     }
 }

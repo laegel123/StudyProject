@@ -1,6 +1,7 @@
 package com.example.designpattern.observer.example1.controller;
 
 import com.example.designpattern.observer.example1.entity.CurrentConditionDisplay;
+import com.example.designpattern.observer.example1.entity.ForecastDisplay;
 import com.example.designpattern.observer.example1.entity.WeatherData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ public class WeatherController {
         WeatherData weatherData = new WeatherData();
 
         CurrentConditionDisplay currentConditionDisplay = new CurrentConditionDisplay(weatherData);
+        ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
 
         weatherData.setMeasurements(80, 65, 30.4f);
 

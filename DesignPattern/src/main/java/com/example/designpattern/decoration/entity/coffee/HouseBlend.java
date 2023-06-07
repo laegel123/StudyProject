@@ -10,6 +10,16 @@ public class HouseBlend extends Beverage {
 
     @Override
     public double cost() {
-        return .89;
+
+        double price = 0.0;
+        if (getSize().equals(Size.TALL)) {
+            price = .89;
+        } else if (getSize().equals(Size.GRANDE)) {
+            price = 1.3;
+        } else if (getSize().equals(Size.VENTI)) {
+            price = 1.8;
+        }
+
+        return price;
     }
 }

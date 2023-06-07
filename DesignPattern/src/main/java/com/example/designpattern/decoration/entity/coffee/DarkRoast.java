@@ -10,6 +10,15 @@ public class DarkRoast extends Beverage {
 
     @Override
     public double cost() {
-        return .99;
+        double price = 0.0;
+        if (getSize().equals(Size.TALL)) {
+            price = .99;
+        } else if (getSize().equals(Size.GRANDE)) {
+            price = 1.20;
+        } else if (getSize().equals(Size.VENTI)) {
+            price = 1.50;
+        }
+
+        return price;
     }
 }

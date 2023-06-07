@@ -10,6 +10,15 @@ public class Decaf extends Beverage {
 
     @Override
     public double cost() {
-        return 1.05;
+        double price = 0.0;
+        if (getSize().equals(Size.TALL)) {
+            price = 1.05;
+        } else if (getSize().equals(Size.GRANDE)) {
+            price = 1.35;
+        } else if (getSize().equals(Size.VENTI)) {
+            price = 1.55;
+        }
+
+        return price;
     }
 }

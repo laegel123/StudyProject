@@ -1,7 +1,7 @@
-package com.example.designpattern.decorator.entity.decorate;
+package com.example.designpattern.decorator.example1.entity.decorate;
 
-import com.example.designpattern.decorator.entity.Beverage;
-import com.example.designpattern.decorator.entity.CondimentDecorator;
+import com.example.designpattern.decorator.example1.entity.Beverage;
+import com.example.designpattern.decorator.example1.entity.CondimentDecorator;
 
 public class Whip extends CondimentDecorator {
 

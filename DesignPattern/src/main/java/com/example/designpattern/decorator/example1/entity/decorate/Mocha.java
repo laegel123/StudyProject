@@ -1,17 +1,17 @@
-package com.example.designpattern.decorator.entity.decorate;
+package com.example.designpattern.decorator.example1.entity.decorate;
 
-import com.example.designpattern.decorator.entity.Beverage;
-import com.example.designpattern.decorator.entity.CondimentDecorator;
+import com.example.designpattern.decorator.example1.entity.Beverage;
+import com.example.designpattern.decorator.example1.entity.CondimentDecorator;
 
-public class Soy extends CondimentDecorator {
+public class Mocha extends CondimentDecorator {
 
-    public Soy(Beverage beverage) {
+    public Mocha(Beverage beverage) {
         this.beverage = beverage;
     }
 
     @Override
     public String getDescription() {
-        return beverage.getDescription() + ", 두유";
+        return beverage.getDescription() + ", 모카";
     }
 
     public double cost() {

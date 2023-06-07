@@ -1,4 +1,4 @@
-package com.example.designpattern.decorator.entity;
+package com.example.designpattern.decorator.example1.entity;
 
 public abstract class Beverage {
     public enum  Size {

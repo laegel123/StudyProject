@@ -1,6 +1,6 @@
-package com.example.designpattern.decorator.entity.coffee;
+package com.example.designpattern.decorator.example1.entity.coffee;
 
-import com.example.designpattern.decorator.entity.Beverage;
+import com.example.designpattern.decorator.example1.entity.Beverage;
 
 public class Decaf extends Beverage {
 

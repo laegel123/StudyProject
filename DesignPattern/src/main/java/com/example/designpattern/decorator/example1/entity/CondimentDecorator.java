@@ -1,4 +1,4 @@
-package com.example.designpattern.decorator.entity;
+package com.example.designpattern.decorator.example1.entity;
 
 public abstract class CondimentDecorator extends Beverage {
     public Beverage beverage;

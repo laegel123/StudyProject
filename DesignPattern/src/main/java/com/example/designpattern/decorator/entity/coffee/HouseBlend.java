@@ -1,6 +1,6 @@
-package com.example.designpattern.decoration.entity.coffee;
+package com.example.designpattern.decorator.entity.coffee;
 
-import com.example.designpattern.decoration.entity.Beverage;
+import com.example.designpattern.decorator.entity.Beverage;
 
 public class HouseBlend extends Beverage {
 

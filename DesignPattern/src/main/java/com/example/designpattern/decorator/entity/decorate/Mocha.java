@@ -1,7 +1,7 @@
-package com.example.designpattern.decoration.entity.decorate;
+package com.example.designpattern.decorator.entity.decorate;
 
-import com.example.designpattern.decoration.entity.Beverage;
-import com.example.designpattern.decoration.entity.CondimentDecorator;
+import com.example.designpattern.decorator.entity.Beverage;
+import com.example.designpattern.decorator.entity.CondimentDecorator;
 
 public class Mocha extends CondimentDecorator {
 

@@ -14,7 +14,7 @@ public class LowerCaseInputStream extends FilterInputStream {
      * @param in the underlying input stream, or {@code null} if
      *           this instance is to be created without an underlying stream.
      */
-    protected LowerCaseInputStream(InputStream in) {
+    public LowerCaseInputStream(InputStream in) {
         super(in);
     }
 

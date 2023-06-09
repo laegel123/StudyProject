@@ -1,21 +1,32 @@
 package com.example.designpattern.factory.entity.store;
 
+import com.example.designpattern.factory.entity.factory.NYPizzaIngredientFactory;
+import com.example.designpattern.factory.entity.factory.PizzaIngredientFactory;
 import com.example.designpattern.factory.entity.pizza.*;
 
 public class NYPizzaStore extends PizzaStore {
 
     @Override
     Pizza createPizza(String type) {
+        Pizza pizza = null;
+        PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
+
         if (type.equals("cheese")) {
-            return new NYCheesePizza();
+            pizza = new CheesePizza(ingredientFactory);
+            pizza.setName("뉴욕 스타일 치즈 피자");
         } else if (type.equals("pepperoni")) {
-            return new NYPepperoniPizza();
+            pizza = new PepperoniPizza(ingredientFactory);
+            pizza.setName("뉴욕 스타일 페퍼로니 피자");
         } else if (type.equals("clam")) {
-            return new NYClamPizza();
+            pizza = new ClamPizza(ingredientFactory);
+            pizza.setName("뉴욕 스타일 조개 피자");
         } else if (type.equals("veggie")) {
-            return new NYVeggiePizza();
+            pizza = new VeggiePizza(ingredientFactory);
+            pizza.setName("뉴욕 스타일 야채 피자");
         } else {
             return null;
         }
+
+        return pizza;
     }
 }

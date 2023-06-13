@@ -33,6 +33,21 @@ public class RemoteController2 {
         remoteControl.offButtonWasPushed(2);
         remoteControl.undoButtonWasPushed();
 
+        System.out.println("-------macro command-------");
+        Command livingRoomLightOnCommand = new LightOnCommand(new Light("Living Room"));
+        Command kitchenLightOnLight = new LightOnCommand(new Light("Kitchen"));
+        Command stereoOnCommand = new StereoOnWithCDCommand(new Stereo("Living Room"));
+        Command livingRoomLightOffCommand = new LightOffCommand(new Light("Living Room"));
+        Command kitchenLightOffLight = new LightOffCommand(new Light("Kitchen"));
+        Command stereoOffCommand = new StereoOffCommand(new Stereo("Living Room"));
+
+        Command[] macroOnCommands = {livingRoomLightOnCommand, kitchenLightOnLight, stereoOnCommand};
+        Command[] macroOffCommands = {livingRoomLightOffCommand, kitchenLightOffLight, stereoOffCommand};
+        remoteControl.setCommand(3, new MacroCommand(macroOnCommands), new MacroCommand(macroOffCommands));
+
+        remoteControl.onButtonWasPushed(3);
+        remoteControl.offButtonWasPushed(3);
+
 
         return ResponseEntity.ok("Test");
     }

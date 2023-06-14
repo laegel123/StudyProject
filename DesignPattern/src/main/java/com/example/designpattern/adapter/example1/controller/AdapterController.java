@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TurkeyAdapterController {
+public class AdapterController {
 
     @GetMapping("/adapter")
     public ResponseEntity<String> adapter() {

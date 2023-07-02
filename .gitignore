@@ -10,3 +10,9 @@ DesignPattern/gradlew
 DesignPattern/.gradle
 DesignPattern/build
 DesignPattern/gradlew.bat
+
+CodingTest/gradle
+CodingTest/gradlew
+CodingTest/.gradle
+CodingTest/build
+CodingTest/gradlew.bat

@@ -1,5 +1,7 @@
 package com.toby.spring.notSpringCode.user;
 
+import com.toby.spring.notSpringCode.user.dao.ConnectionMaker;
+import com.toby.spring.notSpringCode.user.dao.DConnectionMaker;
 import com.toby.spring.notSpringCode.user.dao.UserDao;
 import com.toby.spring.notSpringCode.user.domain.User;
 
@@ -7,11 +9,12 @@ import java.sql.SQLException;
 
 public class Test {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao dao = new UserDao();
+        ConnectionMaker connectionMaker = new DConnectionMaker();
+        UserDao dao = new UserDao(connectionMaker);
 
         User user = new User();
-        user.setId("laegel");
-        user.setName("백근호");
+        user.setId("laegel2");
+        user.setName("백근호2");
         user.setPassword("1234");
 
         dao.add(user);

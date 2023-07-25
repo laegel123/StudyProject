@@ -1,5 +1,7 @@
 package com.toby.spring.notSpringCode.user;
 
+import com.toby.spring.notSpringCode.user.dao.CountingConnectionMaker;
+import com.toby.spring.notSpringCode.user.dao.CountingDaoFactory;
 import com.toby.spring.notSpringCode.user.dao.DaoFactory;
 import com.toby.spring.notSpringCode.user.dao.UserDao;
 import com.toby.spring.notSpringCode.user.domain.User;
@@ -11,12 +13,12 @@ import java.sql.SQLException;
 public class Test {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+        ApplicationContext context = new AnnotationConfigApplicationContext(CountingDaoFactory.class);
         UserDao dao = context.getBean("userDao", UserDao.class);
 
         User user = new User();
-        user.setId("laegel2");
-        user.setName("백근호2");
+        user.setId("laegel4");
+        user.setName("백근호4");
         user.setPassword("1234");
 
         dao.add(user);
@@ -28,5 +30,10 @@ public class Test {
         System.out.println(user2.getPassword());
 
         System.out.println(user2.getId() + " 조회 성공");
+
+        // -----
+        CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
+        System.out.println("Connection counter: " + ccm.getCounter());
+
     }
 }

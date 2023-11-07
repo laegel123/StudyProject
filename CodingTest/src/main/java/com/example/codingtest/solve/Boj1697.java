@@ -42,7 +42,7 @@ public class Boj1697 {
                         next = now + 1;
                     } else if (i == 1) {
                         next = now - 1;
-                    } else if (i == 2) {
+                    } else {
                         next = now * 2;
                     }
 

@@ -3,15 +3,12 @@ package com.example.codingtest.solve;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class Boj14501 {
     static int T;
     static int[] TIME;
     static int[] PAY;
-    static List<Integer> PAY_LIST = new ArrayList<>();
     static int MAX_SUM = Integer.MIN_VALUE;
 
 

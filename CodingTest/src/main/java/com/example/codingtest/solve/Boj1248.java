@@ -54,8 +54,6 @@ public class Boj1248 {
             }
             MEMORIES.remove(MEMORIES.size() - 1);
         }
-
-
     }
 
     static boolean isSumTrue(int depth) {

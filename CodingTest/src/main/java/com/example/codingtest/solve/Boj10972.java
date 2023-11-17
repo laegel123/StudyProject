@@ -8,21 +8,21 @@ import java.util.StringTokenizer;
 public class Boj10972 {
     static int N;
     static int[] ARR;
-    static int[] MEMORIES;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
+
         ARR = new int[N];
-        MEMORIES = new int[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             ARR[i] = Integer.parseInt(st.nextToken());
         }
 
+
         StringBuilder sb = new StringBuilder();
-        if (isChange()) {
+        if (getNextPermutation()) {
             for (int i = 0; i < N; i++) {
                 sb.append(ARR[i]).append(" ");
             }
@@ -34,36 +34,36 @@ public class Boj10972 {
         br.close();
     }
 
-    static boolean isChange() {
+    static boolean getNextPermutation() {
         int i = N - 1;
-        while (i > 0 && ARR[i] < ARR[i - 1]) {
+        while (i > 0 && ARR[i - 1] > ARR[i]) {
             i--;
         }
 
-        if (i == 0) {
+        if (i <= 0) {
             return false;
         }
 
         int j = N - 1;
-        while (ARR[i - 1] > ARR[j]) {
+        while (ARR[i - 1] >= ARR[j]) {
             j--;
         }
 
         swap(i - 1, j);
 
         j = N - 1;
-        while (i < j) {
+        while (j > i) {
             swap(i, j);
-            i++;
             j--;
+            i++;
         }
 
         return true;
     }
 
     static void swap(int i, int j) {
-        int temp = ARR[i];
+        int tmp = ARR[i];
         ARR[i] = ARR[j];
-        ARR[j] = temp;
+        ARR[j] = tmp;
     }
 }

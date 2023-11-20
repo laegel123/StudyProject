@@ -53,7 +53,5 @@ public class Boj1182 {
             dfs(depth + 1, i + 1);
             MEMORIES.remove(MEMORIES.size() - 1);
         }
-
-
     }
 }

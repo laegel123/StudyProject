@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 public class Boj2529 {
     static int N;
     static List<Integer> MEMORIES = new ArrayList<>();
-    static List<StringBuilder> ANSWER_LIST = new ArrayList<StringBuilder>();
+    static List<StringBuilder> ANSWER_LIST = new ArrayList<>();
     static boolean[] VISITED = new boolean[10];
     static char[] ARR;
 

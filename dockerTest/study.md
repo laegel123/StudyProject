@@ -20,3 +20,27 @@
 -> CMD 와 ENTRYPOINT 가 함께 쓰이는 경우에는 ENTRYPOINT 가 명령어, CMD 가 argument 나 option 등에 쓰인다.
 
 
+
+---
+
+- 실행중인 컨테이너 목록 확인 
+> docker ps [옵션]
+
+- foreground로 실행중인 컨테이너에 연결
+> docker attach [옵션] 컨테이너이름
+
+- 동작중인 컨테이너에 NEW 명령어 추가 실행
+> docker exec -it webserver /bin/bash
+
+- 컨테이너에서 동작되는 프로세스 확인
+> docker top [옵션] 컨테이너이름
+
+- 동작중인 컨테이너가 생성한 로그 보기
+> docker logs [옵션] 컨테이너이름
+> docker logs -f 컨테이너 이름 => 실시간으로 로그 업데이트 보여줌
+
+- 실행중인 컨테이너 정보를 확인할 때
+> docker inspect [옵션] 컨테이너 이름
+> ex) docker inspect --format '{{.NetworkSettings.IPAddress}}' webserver
+
+

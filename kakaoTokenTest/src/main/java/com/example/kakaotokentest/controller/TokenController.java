@@ -5,14 +5,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.Map;
 
 @RestController
@@ -58,6 +62,39 @@ public class TokenController {
         String refreshTokenExpiresIn = map.get("refresh_token_expires_in");
 
 
+
+    }
+
+    public void test() throws URISyntaxException {
+        URI uri = new URI(
+                "https://kauth.kakao.com/oauth/authorize?client_id="+""+
+                        "&redirect_uri=https://ad.adpool.co.kr/kakao/oauth&response_type=code");
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response =  restTemplate.getForEntity(uri, String.class);
+
+        String code = "";
+        //String code = StringUtils.substringBetween(response.getBody(), "code :");
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        params.put("grant_type", Arrays.asList("authorization_code"));
+        params.put("client_id", Arrays.asList(""));
+        params.put("redirect_uri", Arrays.asList("http://ad.adpool.co.kr/kakao/oauth"));
+        params.put("code", Arrays.asList(code));
+
+        UriComponents kakaoOauthTokenUriComponents = UriComponentsBuilder.newInstance()
+                .scheme("https")
+                .host("kauth.kakao.com")
+                .path("/oauth/token")
+                .queryParams(params)
+                .build();
+
+        ResponseEntity<String> kakaoOauthTokenResponse =
+                restTemplate.exchange(kakaoOauthTokenUriComponents.toString(), HttpMethod.POST, entity, String.class);
 
     }
 

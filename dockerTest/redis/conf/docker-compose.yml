@@ -1,0 +1,37 @@
+#docker-compose.yml
+version: '3'
+
+services:
+  ##############################################################################
+  # Redis Server
+  ##############################################################################
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis
+    ports:
+      - "6379:6379"
+      #- "26379:26379"
+      #- "6380:6380"
+#    volumes:
+#      - ~/Documents/personal/StudyProject/dockerTest/redis/conf/6379.conf:/usr/local/etc/redis/6379.conf
+#      - ~/Documents/personal/StudyProject/dockerTest/redis/conf/6380.conf:/usr/local/etc/redis/6380.conf
+#      - ~/Documents/personal/StudyProject/dockerTest/redis/conf/redis-sentinel-26379.conf:/usr/local/etc/redis/redis-sentinel-26379.conf
+#    command:
+#      - redis-server /usr/local/etc/redis/6379.conf
+#      - redis-server /usr/local/etc/redis/6380.conf
+#      - redis-sentinel /usr/local/etc/redis/redis-sentinel-26379.conf
+
+  ##############################################################################
+  # Redis Web-UI
+  # https://github.com/joeferner/redis-commander
+  ##############################################################################
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8081:8081"

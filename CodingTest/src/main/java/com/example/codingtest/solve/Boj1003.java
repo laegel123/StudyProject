@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 public class Boj1003 {
     public static void main(String[] args) throws IOException {
+        // test
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int t = Integer.parseInt(br.readLine());

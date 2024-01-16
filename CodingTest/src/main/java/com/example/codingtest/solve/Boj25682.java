@@ -17,14 +17,23 @@ public class Boj25682 {
         int[][] reverse = new int[n][m];
         for (int i = 0; i < n; i++) {
             String[] str = br.readLine().split("");
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < m; j++) {
+                // B로시작
                 if (str[j].equals("B") && (i + j) % 2 != 0) {
                     arr[i][j] = 1;
                 }
+                if (str[j].equals("W") && (i + j) % 2 == 0) {
+                    arr[i][j] = 1;
+                }
 
-                if (str[j].equals("W") && (i + j) % 2 != 0) {
+                // W로시작
+                if (!str[j].equals("W") && (i + j) % 2 != 0) {
                     reverse[i][j] = 1;
                 }
+                if (!str[j].equals("B") && (i + j) % 2 == 0) {
+                    reverse[i][j] = 1;
+                }
+
             }
         }
 

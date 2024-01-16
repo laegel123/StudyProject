@@ -12,22 +12,17 @@ public class Boj10986 {
 
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        long count = 0;
         long[] prefixSum = new long[n + 1];
         long[] sumCount = new long[m];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 1; i < n + 1; i++) {
             prefixSum[i] = (prefixSum[i - 1] + Integer.parseInt(st.nextToken())) % m ;
-
-            if (prefixSum[i] == 0) {
-                count++;
-            }
-
             sumCount[(int) prefixSum[i]]++;
         }
 
 
+        long count = sumCount[0];
         for (int i = 0; i < m; i++) {
             if (sumCount[i] > 1) {
                 count += (sumCount[i] * (sumCount[i] - 1) / 2);

@@ -1,4 +1,4 @@
-package com.example.effectivejava.ch2.example2;
+package com.example.effectivejava.item02.example2;
 
 public class Member {
     private String id;

@@ -1,4 +1,4 @@
-package com.example.effectivejava.ch2.example1;
+package com.example.effectivejava.item02.example1;
 
 import java.util.Objects;
 

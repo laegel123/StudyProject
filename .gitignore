@@ -4,6 +4,7 @@ SpringStudy/.gradle
 SpringStudy/build
 SpringStudy/gradle
 SpringStudy/out
+SpringStudy/gradlew.bat
 
 DesignPattern/gradle
 DesignPattern/gradlew
@@ -22,3 +23,10 @@ TobySpring/gradlew
 TobySpring/.gradle
 TobySpring/build
 TobySpring/gradlew.bat
+
+EffectiveJava/gradle
+EffectiveJava/gradlew
+EffectiveJava/.gradle
+EffectiveJava/build
+EffectiveJava/gradlew.bat
+

@@ -36,10 +36,45 @@ public class Boj14503 {
             }
 
             // 주변 4칸 탐색
+            boolean isEmptyRoom = false;
+            int newX = 0;
+            int newY = 0;
+            for (int i = 0; i < 4; i++) {
+                int[] distance = getDistance(d);
+                if (room[startX + distance[0]][startY + distance[1]] == 0) {
+                    isEmptyRoom = true;
+                    newX = startX + distance[0];
+                    newY = startY + distance[1];
+                }
+            }
 
             // 탐색 후 빈 칸 없는 경우 후진 and 벽이면 멈춤
 
             // 탐색 후 빈 칸 있는 경우 반시계 방향으로 90도 회전, 한 칸 전진
         }
+    }
+
+    static int[] getDistance(int d) {
+        int[] result = new int[3];
+
+        if (d == 0) {
+            result[0] = 1;
+            result[1] = -1;
+            result[2] = 3;
+        } else if (d == 1) {
+            result[0] = -1;
+            result[1] = -1;
+            result[2] = 0;
+        } else if (d == 2) {
+            result[0] = -1;
+            result[1] = 1;
+            result[2] = 1;
+        } else if (d == 3) {
+            result[0] = 1;
+            result[1] = 1;
+            result[2] = 0;
+        }
+
+        return result;
     }
 }

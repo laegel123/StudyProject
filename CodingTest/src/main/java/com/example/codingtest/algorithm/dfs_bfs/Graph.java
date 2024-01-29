@@ -10,6 +10,7 @@ public class Graph {
 
     Graph(int v) {
         length = v;
+        adj = new LinkedList[length];
         // 인접 리스트 초기화
         for (int i = 0; i < length; i++) {
             adj[i] = new LinkedList<>();

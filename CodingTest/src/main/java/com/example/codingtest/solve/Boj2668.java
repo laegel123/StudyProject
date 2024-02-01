@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Boj2668 {
     static int N;
@@ -31,7 +32,7 @@ public class Boj2668 {
         if (STORE.size() == 0) {
             sb.append(0);
         } else {
-            List<Integer> list = STORE.stream().sorted().toList();
+            List<Integer> list = STORE.stream().sorted().collect(Collectors.toList());
 
             sb.append(list.size()).append("\n");
             list.forEach(sc -> {

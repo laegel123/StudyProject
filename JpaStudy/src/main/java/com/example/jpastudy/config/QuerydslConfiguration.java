@@ -12,7 +12,7 @@ public class QuerydslConfiguration {
     private EntityManager firstEntityManager;
 
     @Bean
-    public JPAQueryFactory selperJpaQueryFactory() {
+    public JPAQueryFactory firstJpaQueryFactory() {
         return new JPAQueryFactory(firstEntityManager);
     }
 

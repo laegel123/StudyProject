@@ -16,15 +16,16 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Map;
 
 @RestController
 public class TokenController {
 
-    @GetMapping("/kakao-login")
+    @GetMapping("/kakao/oauth")
     public void getKakaoCode(@RequestParam String code) throws JsonProcessingException, IOException {
-        String a = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=6d0a65635f44e3c97efa1ea6a5cc9865&redirect_uri=http://127.0.0.1:8081/kakao-login&response_type=code";
+        //String a = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a176d73dee226e3de5ce00fbbaa98dc6&redirect_uri=http://localhost:8080/kakao/oauth&response_type=code";
         System.out.println(code);
         getAccessToken(code);
 
@@ -34,14 +35,14 @@ public class TokenController {
     public void getAccessToken(String code) throws JsonProcessingException, IOException {
         RestTemplate restTemplate = new RestTemplate();
         URI uri = UriComponentsBuilder.fromHttpUrl("https://kauth.kakao.com/oauth/token")
-                .queryParam("client_id", "6d0a65635f44e3c97efa1ea6a5cc9865" )
-                .queryParam("redirect_uri", "http://127.0.0.1:8081/kakao-login")
+                .queryParam("client_id", "a176d73dee226e3de5ce00fbbaa98dc6" )
+                .queryParam("redirect_uri", "http://localhost:8080/kakao/oauth")
                 .queryParam("code", code)
                 .queryParam("grant_type", "authorization_code")
                 .build().toUri();
 
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+        httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
         HttpEntity<?> httpEntity = new HttpEntity<>(body, httpHeaders);
         ResponseEntity<String> res;
@@ -58,17 +59,24 @@ public class TokenController {
 
         String accessToken = map.get("access_token");
         String refreshToken = map.get("refresh_token");
-        String accessTokenExpiresIn = map.get("expires_in");
-        String refreshTokenExpiresIn = map.get("refresh_token_expires_in");
+        int accessTokenExpiresIn = Integer.parseInt(String.valueOf(map.get("expires_in")));
+        int refreshTokenExpiresIn = Integer.parseInt(String.valueOf(map.get("refresh_token_expires_in")));
+        LocalDateTime accessDatetime = LocalDateTime.now().plusSeconds(
+                accessTokenExpiresIn);
 
+        LocalDateTime refreshDatetime = LocalDateTime.now().plusSeconds(
+                refreshTokenExpiresIn);
+
+        System.out.println(refreshDatetime);
 
 
     }
 
-    public void test() throws URISyntaxException {
+    @GetMapping("/tokenTest")
+    public void tokenTest() throws URISyntaxException {
         URI uri = new URI(
-                "https://kauth.kakao.com/oauth/authorize?client_id="+""+
-                        "&redirect_uri=https://ad.adpool.co.kr/kakao/oauth&response_type=code");
+                "https://kauth.kakao.com/oauth/authorize?client_id="+"6d0a65635f44e3c97efa1ea6a5cc9865"+
+                        "&redirect_uri=http://127.0.0.1:8081/kakao-login");
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response =  restTemplate.getForEntity(uri, String.class);
@@ -76,14 +84,15 @@ public class TokenController {
         String code = "";
         //String code = StringUtils.substringBetween(response.getBody(), "code :");
 
+        String str = response.getBody();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.put("grant_type", Arrays.asList("authorization_code"));
-        params.put("client_id", Arrays.asList(""));
-        params.put("redirect_uri", Arrays.asList("http://ad.adpool.co.kr/kakao/oauth"));
+        params.put("client_id", Arrays.asList("6d0a65635f44e3c97efa1ea6a5cc9865"));
+        params.put("redirect_uri", Arrays.asList("http://127.0.0.1:8081/kakao-login"));
         params.put("code", Arrays.asList(code));
 
         UriComponents kakaoOauthTokenUriComponents = UriComponentsBuilder.newInstance()
@@ -96,6 +105,7 @@ public class TokenController {
         ResponseEntity<String> kakaoOauthTokenResponse =
                 restTemplate.exchange(kakaoOauthTokenUriComponents.toString(), HttpMethod.POST, entity, String.class);
 
+        System.out.println(kakaoOauthTokenResponse);
     }
 
 }

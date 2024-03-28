@@ -22,10 +22,9 @@ import java.util.Map;
 
 @RestController
 public class TokenController {
-
     @GetMapping("/kakao/oauth")
     public void getKakaoCode(@RequestParam String code) throws JsonProcessingException, IOException {
-        //String a = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a176d73dee226e3de5ce00fbbaa98dc6&redirect_uri=http://localhost:8080/kakao/oauth&response_type=code";
+        //String a = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=&redirect_uri=http://localhost:8080/kakao/oauth&response_type=code";
         System.out.println(code);
         getAccessToken(code);
 
@@ -35,7 +34,7 @@ public class TokenController {
     public void getAccessToken(String code) throws JsonProcessingException, IOException {
         RestTemplate restTemplate = new RestTemplate();
         URI uri = UriComponentsBuilder.fromHttpUrl("https://kauth.kakao.com/oauth/token")
-                .queryParam("client_id", "a176d73dee226e3de5ce00fbbaa98dc6" )
+                .queryParam("client_id", "" )
                 .queryParam("redirect_uri", "http://localhost:8080/kakao/oauth")
                 .queryParam("code", code)
                 .queryParam("grant_type", "authorization_code")
@@ -75,7 +74,8 @@ public class TokenController {
     @GetMapping("/tokenTest")
     public void tokenTest() throws URISyntaxException {
         URI uri = new URI(
-                "https://kauth.kakao.com/oauth/authorize?client_id="+"6d0a65635f44e3c97efa1ea6a5cc9865"+
+                "https://kauth.kakao.com/oauth/authorize?client_id="+"" +
+                        ""+
                         "&redirect_uri=http://127.0.0.1:8081/kakao-login");
 
         RestTemplate restTemplate = new RestTemplate();
@@ -91,7 +91,7 @@ public class TokenController {
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.put("grant_type", Arrays.asList("authorization_code"));
-        params.put("client_id", Arrays.asList("6d0a65635f44e3c97efa1ea6a5cc9865"));
+        params.put("client_id", Arrays.asList(""));
         params.put("redirect_uri", Arrays.asList("http://127.0.0.1:8081/kakao-login"));
         params.put("code", Arrays.asList(code));
 

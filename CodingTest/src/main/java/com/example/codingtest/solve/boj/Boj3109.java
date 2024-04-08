@@ -49,6 +49,7 @@ public class Boj3109 {
             }
 
             if (MAP[newX][newY] == '.' && !VISITED[newX][newY]) {
+                VISITED[newX][newY] = true;
                 if (newY == M - 1) {
                     COUNT++;
                     return true;

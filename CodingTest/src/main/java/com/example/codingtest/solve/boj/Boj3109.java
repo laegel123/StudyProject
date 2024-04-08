@@ -38,6 +38,8 @@ public class Boj3109 {
     }
 
     public static boolean dfs(int x, int y) {
+        VISITED[x][y] = true;
+
         for (int i = 0; i < 3; i++) {
             int newX = x + DISTANCE_X[i];
             int newY = y + DISTANCE_Y[i];
@@ -52,7 +54,6 @@ public class Boj3109 {
                     return true;
                 }
 
-                VISITED[newX][newY] = true;
                 if (dfs(newX, newY)) {
                     return true;
                 }

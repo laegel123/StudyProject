@@ -1,6 +1,5 @@
 package com.example.codingtest.solve.boj;
 
-import javax.swing.plaf.basic.BasicButtonUI;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

@@ -12,7 +12,6 @@ class Solution18 {
         List<List<Integer>> resultList = new ArrayList<>();
         Arrays.sort(nums);
         
-        
         for (int i = 0; i < nums.length - 3; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) continue;
 
@@ -44,8 +43,6 @@ class Solution18 {
                 
             }
         }
-        
-        
         
         return resultList;
     }

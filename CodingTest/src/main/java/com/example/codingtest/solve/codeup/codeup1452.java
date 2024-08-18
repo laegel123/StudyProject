@@ -20,7 +20,7 @@ public class codeup1452 {
         }
 
         quickSort(arr, 0, n - 1);
-s
+
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
             sb.append(arr[i]).append("\n");

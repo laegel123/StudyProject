@@ -15,10 +15,10 @@ public class codeup1425 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         StringBuilder sb = new StringBuilder();
-        
+
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        
+
         int[] arr = new int[300];
 
         st = new StringTokenizer(br.readLine());
@@ -26,21 +26,20 @@ public class codeup1425 {
             int x = Integer.parseInt(st.nextToken());
             arr[x]++;
         }
-        
+
         int x = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i]; j++) {
                 sb.append(i).append(" ");
                 x++;
-                if (x == 6) {
+                if (x == m) {
                     sb.append("\n");
                     x = 0;
                 }
             }
         }
-        
+
         System.out.println(sb);
         br.close();
     }
-    
 }
